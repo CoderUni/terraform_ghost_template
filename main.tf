@@ -1,25 +1,18 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
+  cloud {
+    organization = "CoderUni"
+    workspaces {
+      name = "Personal_Blog"
     }
   }
 }
 
-# Configure the AWS Provider
-provider "aws" {
-  region = "ap-southeast-1"
-}
+module "aws_ghost_instance" {
+  source = "./modules/aws/ghost-instance"
 
-# Create a VPC
-resource "aws_vpc" "example" {
-  cidr_block = "10.0.0.0/16"
-}
-
-# Create an EC2 instance
-
-resource "aws_instance" "blog" {
-  ami = "ami-02c87b06d719a84f5"
-  instance_type = "t3.micro"
+  aws_ami                  = var.aws_ami
+  aws_instance_type        = var.aws_instance_type
+  aws_instance_volume_size = var.aws_instance_volume_size
+  aws_instance_volume_type = var.aws_instance_volume_type
+  aws_instance_public_key  = var.aws_instance_public_key
 }
