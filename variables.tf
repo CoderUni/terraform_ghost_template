@@ -22,3 +22,13 @@ variable "aws_instance_public_key" {
   type        = string
   description = "The public key to use for the EC2 instance"
 }
+
+variable "cloudflare_domain" {
+  type        = string
+  description = "The domain to use for the Cloudflare DNS record"
+}
+
+variable "cloudflare_zone_id" {
+  type        = string
+  description = "The zone ID of the domain in Cloudflare"
+}

@@ -20,3 +20,7 @@ aws_instance_type        = "t3.micro"
 aws_instance_volume_size = 15
 aws_instance_volume_type = "gp2"
 aws_instance_public_key  = "" # Replace with the content of your SSH key.pub
+
+# Cloudflare
+cloudflare_domain        = "example.com" # Replace with your domain name
+cloudflare_zone_id       = "" # The domain's Zone ID can be found here (https://developers.cloudflare.com/fundamentals/setup/find-account-and-zone-ids/)
